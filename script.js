@@ -1,0 +1,6 @@
+const colorPicker = document.getElementById('colorPicker')
+const colorBtn = document.getElementById('colorBtn')
+const rainbowBtn = document.getElementById('rainbowBtn')
+const eraserBtn = document.getElementById('eraserBtn')
+const clearBtn = document.getElementById('clearBtn')
+const colorPicker = document.getElementById('colorPicker')
