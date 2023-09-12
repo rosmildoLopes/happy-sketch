@@ -63,9 +63,20 @@ function clearBoard() {
 }
 
 function setupBoard(size) {
-  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-  grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+  board.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+  board.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+  for (let i = 0; i < size * size; i++) {
+    const boardElement = document.createElement('div');
+    boardElement.classList.add('board-element');
+    boardElement.addEventListener('mousedown' ,changeColor);
+    boardElement.addEventListener('mouseover' ,changeColor);
+    board.appendChild(boardElement);
+    
+  }
 }
+
+
 window.onload = () => {
   setupBoard(DEFAULT_SIZE)
   activateButton(DEFAULT_MODE)
