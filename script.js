@@ -72,7 +72,40 @@ function setupBoard(size) {
     boardElement.addEventListener('mousedown' ,changeColor);
     boardElement.addEventListener('mouseover' ,changeColor);
     board.appendChild(boardElement);
-    
+  }
+}
+
+function changeColor(e) {
+  if (e.type === 'mouseover' && ¡mouseDown) {
+    if(current === 'rainbow' ) {
+      const randomR = Math.floor(Math.random() * 256)
+      const randomG = Math.floor(Math.random() * 256)
+      const randomB = Math.floor(Math.random() * 256)
+      e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if(currentMode === 'color') {
+      e.target.style.backgroundColor = currentColor
+    } else if (currentMode === 'eraser') {
+      e.target.style.backgroundColor === '#efefef'
+    }
+  }
+}
+
+function activateButton(newMode) {
+  if(currentMode === 'rainbow') {
+    rainbowBtn.classList.remove('active')
+  } else if(currentMode === 'color') {
+    colorBtn.classList.remove('active')
+  } else if(currentMode === 'eraser') {
+    eraserBtn.classList.remove('active')
+  }
+
+  if (newMode === 'rainbow') {
+    rainbowBtn.classList.add('active')
+  }else if (newMode === 'color') {
+    colorBtn.classList.add('active')
+  }
+  if (newMode === 'erase') {
+    eraserBtn.classList.add('active')
   }
 }
 
